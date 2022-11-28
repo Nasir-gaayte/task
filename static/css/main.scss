@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=BhuTuka+Expanded+One&family=Roboto+Condensed:ital@1&family=Rubik+Marker+Hatch&family=Rubik+Moonrocks&display=swap');
+
+body{
+    background: #f2f2f2;
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto Condensed';
+    font-size: small;
+    font-weight: 100;
+}
+
+
+.navbar{
+    background: white;
+    padding: 1em;
+
+
+    .logo{
+        text-decoration: none;
+        font-weight: 400;
+        color: black;
+        font-size: 1.2em;
+        span{
+            color: aqua;
+            font-weight: 600;
+        }
+    }
+    nav {
+        display: none;
+    }
+    
+    .container{
+        display: flex;
+        place-content: space-between;
+    }
+    .menu{
+        cursor: pointer;
+    }
+}
+a {
+    color: #444444;
+}
+
+ul{
+    list-style-type: none;
+    margin: 0;  
+    padding: 0;
+}
+
+section{
+    padding: 5em 2em;
+}
+
+.hero{
+    text-align: center;
+}
+
+.lift-col{
+    .sub{
+        text-transform: uppercase;
+        font-weight: bold;
+        color: gray;
+        letter-spacing: 0.3em;
+    }
+}
