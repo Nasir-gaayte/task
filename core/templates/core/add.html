@@ -1,0 +1,19 @@
+{% extends 'core/home.html' %}  
+
+{% block content %}
+<div class="mt-5">
+    <div class="container">
+        <button class="btn btn-dark" type="submit"><a href="{% url 'home' %}">Back</a></button>
+        <h1>Add costomer</h1>
+        <div class="card">
+            <form method="POST">
+                {% csrf_token %}
+                {{form}}
+                <button class="btn btn-dark" type="submit">ADD</button>
+            </form>
+        </div>
+    </div>
+</div>
+    
+{% endblock content %}
+    

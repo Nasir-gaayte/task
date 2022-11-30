@@ -1,4 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=BhuTuka+Expanded+One&family=Roboto+Condensed:ital@1&family=Rubik+Marker+Hatch&family=Rubik+Moonrocks&display=swap");
+:root {
+  --cta--color:rgb(57, 187, 219);
+}
+
 body {
   background: #f2f2f2;
   margin: 0;
@@ -19,15 +23,24 @@ body {
   font-size: 2.2em;
 }
 .navbar .logo span {
-  color: aqua;
+  color: rgb(155, 198, 198);
   font-weight: 600;
-}
-.navbar nav {
-  display: none;
 }
 .navbar .container {
   display: flex;
   place-content: space-between;
+}
+.navbar .container nav {
+  position: fixed;
+  right: 0;
+  top: 0;
+  background: white;
+  height: 100vh;
+  width: 50%;
+  z-index: 999;
+  text-transform: uppercase;
+  transform: translateX(100%);
+  transition: transform 0.5s ease-in-out;
 }
 .navbar .menu {
   cursor: pointer;
@@ -46,6 +59,10 @@ ul {
 section {
   padding: 5em 2em;
 }
+section .container img {
+  width: 200px;
+  height: 200px;
+}
 
 .hero {
   text-align: center;
@@ -60,10 +77,98 @@ section {
 .lift-col h3 {
   font-size: 2.5em;
   line-height: 1.3em;
+  margin-bottom: 0.2em;
 }
 .lift-col h3 .logo {
+  text-decoration: none;
   color: rgb(241, 118, 10);
 }
 .lift-col h3 .logo span {
   color: gold;
+}
+.lift-col .cta-1 {
+  background: var(--cta--color);
+  color: white;
+  text-decoration: none;
+  padding: 0.6em 1.3em;
+  border-radius: 5em;
+  font-weight: bold;
+  font-size: 1.4em;
+  display: inline-block;
+  margin-bottom: 0.4em;
+}
+.lift-col .v-icon {
+  display: block;
+  margin-bottom: 1.5em;
+}
+
+.feed {
+  background-color: black;
+  color: white;
+  padding-left: 0.4em;
+  padding-bottom: 0.4em;
+  margin-bottom: 0.4em;
+}
+
+.data {
+  display: grid;
+  background: linear-gradient(45deg, #49a09d, #5f2c82);
+}
+.data .col1 {
+  display: contents;
+}
+.data .col1 .all-t-body .con {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.data .col1 .all-t-body table {
+  border-collapse: collapse;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+.data .col1 .all-t-body th,
+.data .col1 .all-t-body td {
+  padding: 15px;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: rgb(240, 237, 243);
+}
+.data .col1 .all-t-body th {
+  text-align: left;
+}
+.data .col1 .all-t-body thead th {
+  background-color: #55608f;
+}
+.data .col1 .all-t-body tbody tr:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+.data .col1 .all-t-body tbody td {
+  position: relative;
+}
+.data .col1 .all-t-body tbody td:hover:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -9999px;
+  bottom: -9999px;
+  background-color: rgba(255, 255, 255, 0.2);
+  z-index: -1;
+}
+.data .col2 {
+  display: contents;
+}
+.data .col2 .con {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column-reverse;
+}
+
+@media screen and (max-width: 950px) and (min-width: 300px) {
+  section .data {
+    display: grid;
+    grid-template-columns: repeat(2, atuo);
+    background: #49a09d;
+  }
 }/*# sourceMappingURL=main.css.map */

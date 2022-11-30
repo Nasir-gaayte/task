@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=BhuTuka+Expanded+One&family=Roboto+Condensed:ital@1&family=Rubik+Marker+Hatch&family=Rubik+Moonrocks&display=swap');
 
+
+:root {
+    --cta--color:rgb(57, 187, 219);
+}
+
 body{
     background: #f2f2f2;
     margin: 0;
@@ -14,6 +19,8 @@ body{
     background: white;
     padding: 1em;
 
+    
+
 
     .logo{
         text-decoration: none;
@@ -21,17 +28,31 @@ body{
         color: black;
         font-size: 2.2em;
         span{
-            color: aqua;
+            color: rgb(155, 198, 198);
             font-weight: 600;
         }
     }
-    nav {
-        display: none;
-    }
+    
+    
     
     .container{
         display: flex;
         place-content: space-between;
+        nav {
+            position: fixed;
+            right: 0;
+            top: 0;
+            background: white;
+            height: 100vh;
+            width: 50%;
+            z-index: 999;
+            text-transform: uppercase;
+            transform: translateX(100%);
+            transition: transform .5s ease-in-out;
+        
+        }
+
+        
     }
     .menu{
         cursor: pointer;
@@ -49,6 +70,12 @@ ul{
 
 section{
     padding: 5em 2em;
+    .container{
+        img{
+            width: 200px;
+            height: 200px;
+        }
+    }
 }
 
 .hero{
@@ -65,12 +92,131 @@ section{
     h3{
         font-size: 2.5em;
         line-height: 1.3em;
+        margin-bottom: 0.2em;
         .logo{
-                
+            text-decoration: none;    
             color: rgb(241, 118, 10);
             span{
                 color: gold;
             }
         }
     }
+    .cta-1{
+        background: var(--cta--color);
+        color: white;
+        text-decoration: none;
+        padding: 0.6em 1.3em;
+        border-radius: 5em;
+        font-weight: bold;
+        font-size: 1.4em;
+        display: inline-block;
+        margin-bottom: 0.4em;
+
+    }
+    .v-icon{
+        display: block;
+        margin-bottom: 1.5em ;
+        
+    }
 }
+
+.feed{
+    background-color: black;
+    color: white;
+    padding-left: 0.4em; 
+    padding-bottom: 0.4em;
+    margin-bottom: 0.4em;
+}
+
+.data{
+    display:grid;
+    
+    background: linear-gradient(45deg, #49a09d, #5f2c82);
+
+    .col1{
+        display:contents;
+        .all-t-body{
+            
+            .con{
+              display: flex;
+              align-items: center;
+              justify-content: center;  
+                
+            }
+            table {
+                
+                border-collapse: collapse;
+                overflow: hidden;
+                box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            }
+            th,
+            td {
+                padding: 15px;
+                background-color: rgba(255,255,255,0.2);
+                color: rgb(240, 237, 243);
+            }
+            th {
+                text-align: left;
+            }
+            thead {
+                th {
+                    background-color: #55608f;
+                }
+            }
+
+            tbody {
+                tr {
+                    &:hover {
+                        background-color: rgba(255,255,255,0.3);
+                    }
+                }
+                td {
+                    position: relative;
+                    &:hover {
+                        &:before {
+                            content: "";
+                            position: absolute;
+                            left: 0;
+                            right: 0;
+                            top: -9999px;
+                            bottom: -9999px;
+                            background-color: rgba(255,255,255,0.2);
+                            z-index: -1;
+                        }
+                    }
+                }
+            } 
+        }
+    }
+    .col2{
+        display: contents;
+        .con{
+            display: flex;
+            align-items: center;
+            justify-content: center; 
+            flex-direction: column-reverse; 
+        }
+        
+        
+       
+    }
+}
+
+
+
+@media screen and (max-width:950px) and (min-width:300px) {
+    section .data{
+        display: grid;
+        grid-template-columns: repeat(2,atuo);
+        background: #49a09d;
+        }
+        // .col1{
+
+        // }
+        // .col2{
+
+        // }
+
+    
+}
+

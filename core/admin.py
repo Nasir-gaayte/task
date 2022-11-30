@@ -1,3 +1,6 @@
 from django.contrib import admin
+from . models import Citymodel, Categorymodel, Contactmodel
 
-# Register your models here.
+admin.site.register(Citymodel)
+admin.site.register(Categorymodel)
+admin.site.register(Contactmodel)
