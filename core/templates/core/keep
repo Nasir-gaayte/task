@@ -1,0 +1,23 @@
+<a class="logo" href="{% url 'home' %}">DOON<span>/WAC</span></a> 
+            
+            
+{{user.name}}
+
+<nav class="navbar bg-light fixed-top" >
+
+    <img id="menu-x" class="x" src="/static/imo/x.svg" alt="">
+    <ul class="nav-u1">
+        <li class="nav-home"><a href="">HOME</a></li>
+        <li> <a href="">CATEGORY</a></li>
+        <li><a href="">LETTER</a></li>
+    </ul>
+    <ul class="nav-u2">
+        <li><a href="">Contact</a></li>
+        <li>
+            <input type="search" value="", placeholder="Search">
+        </li>
+    </ul>
+    
+</nav>
+<img id="menu-mobile" class="menu" src="/static/imo/menu.svg" alt="">
+</div>

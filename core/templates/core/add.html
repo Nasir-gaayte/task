@@ -6,10 +6,45 @@
         <button class="btn btn-dark" type="submit"><a href="{% url 'home' %}">Back</a></button>
         <h1>Add costomer</h1>
         <div class="card">
-            <form method="POST">
+            <form class="row g-3 container titless " method="POST" enctype="multipart/form-data">
                 {% csrf_token %}
-                {{form}}
-                <button class="btn btn-dark" type="submit">ADD</button>
+                <div class="form-group m-3">
+                    <label >name</label> 
+                    <input required name="name" type="text" placeholder="Add your company name">
+                </div>
+                <div class="form-group m-3">
+                    <label  >Select Category</label>
+                <select name="category" class="form-control" >
+                    <option value="none">Select a category...</option>
+                    {% for cat in cats %}
+                    <option value="{{cat.id}}">{{cat.name}}</option>
+                    {% endfor %}
+                </select>
+                </div>
+                <div class="form-group m-3">
+                    <label  >Select Category</label>
+                <select name="city" class="form-control" >
+                    <option value="none">Select the city ...</option>
+                    {% for c in citss %}
+                    <option value="{{c.id}}">{{c.name}}</option>
+                    {% endfor %}
+                </select>
+                </div>
+                <div class="form-group m3">
+                    <label >Phone1:</label>
+                    <input required name="phone1" type="integer"  placeholder="add category" class="form-control-file">
+                </div>
+                <div class="form-group m3">
+                    <label >Phone1:</label>
+                    <input  name="phone2" type="integer"  placeholder="not required" class="form-control-file">
+                </div>
+               
+            
+            <!-- <div class="form-group m3">
+                <label >Upload image</label>
+                <input required name="images" type="file" multiple class="form-control-file">
+            </div> -->
+            <button class="btn btn-dark btn-block" type="submit">ADD</button>
             </form>
         </div>
     </div>

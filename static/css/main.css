@@ -12,6 +12,10 @@ body {
   font-weight: 100;
 }
 
+nav {
+  display: none;
+}
+
 .navbar {
   background: white;
   padding: 1em;
@@ -23,7 +27,7 @@ body {
   font-size: 2.2em;
 }
 .navbar .logo span {
-  color: rgb(155, 198, 198);
+  color: rgb(60, 212, 250);
   font-weight: 600;
 }
 .navbar .container {
@@ -109,43 +113,45 @@ section .container img {
   padding-bottom: 0.4em;
   margin-bottom: 0.4em;
 }
+.feed .feed-ci a {
+  text-decoration: none;
+}
 
-.data {
+section .data {
+  display: none;
   display: grid;
+  grid-template-columns: repeat(2, auto);
   background: linear-gradient(45deg, #49a09d, #5f2c82);
 }
-.data .col1 {
-  display: contents;
-}
-.data .col1 .all-t-body .con {
+section .data .col1 .all-t-body .con {
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.data .col1 .all-t-body table {
+section .data .col1 .all-t-body table {
   border-collapse: collapse;
   overflow: hidden;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
 }
-.data .col1 .all-t-body th,
-.data .col1 .all-t-body td {
+section .data .col1 .all-t-body th,
+section .data .col1 .all-t-body td {
   padding: 15px;
   background-color: rgba(255, 255, 255, 0.2);
   color: rgb(240, 237, 243);
 }
-.data .col1 .all-t-body th {
+section .data .col1 .all-t-body th {
   text-align: left;
 }
-.data .col1 .all-t-body thead th {
+section .data .col1 .all-t-body thead th {
   background-color: #55608f;
 }
-.data .col1 .all-t-body tbody tr:hover {
+section .data .col1 .all-t-body tbody tr:hover {
   background-color: rgba(255, 255, 255, 0.3);
 }
-.data .col1 .all-t-body tbody td {
+section .data .col1 .all-t-body tbody td {
   position: relative;
 }
-.data .col1 .all-t-body tbody td:hover:before {
+section .data .col1 .all-t-body tbody td:hover:before {
   content: "";
   position: absolute;
   left: 0;
@@ -155,10 +161,7 @@ section .container img {
   background-color: rgba(255, 255, 255, 0.2);
   z-index: -1;
 }
-.data .col2 {
-  display: contents;
-}
-.data .col2 .con {
+section .data .col2 .con {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -167,8 +170,8 @@ section .container img {
 
 @media screen and (max-width: 950px) and (min-width: 300px) {
   section .data {
-    display: grid;
-    grid-template-columns: repeat(2, atuo);
+    display: none;
+    display: flex;
     background: #49a09d;
   }
 }/*# sourceMappingURL=main.css.map */

@@ -14,6 +14,9 @@ body{
     font-weight: 100;
 }
 
+nav {
+    display: none;
+}
 
 .navbar{
     background: white;
@@ -28,7 +31,7 @@ body{
         color: black;
         font-size: 2.2em;
         span{
-            color: rgb(155, 198, 198);
+            color:rgb(60, 212, 250);
             font-weight: 600;
         }
     }
@@ -49,6 +52,7 @@ body{
             text-transform: uppercase;
             transform: translateX(100%);
             transition: transform .5s ease-in-out;
+            
         
         }
 
@@ -126,15 +130,23 @@ section{
     padding-left: 0.4em; 
     padding-bottom: 0.4em;
     margin-bottom: 0.4em;
+    .feed-ci {
+        a {
+            text-decoration: none;
+        }
+    }
 }
 
-.data{
+section .data{
+    display: none;
     display:grid;
+    grid-template-columns: repeat(2,auto);
     
+   
     background: linear-gradient(45deg, #49a09d, #5f2c82);
 
     .col1{
-        display:contents;
+        // display:contents;
         .all-t-body{
             
             .con{
@@ -189,7 +201,7 @@ section{
         }
     }
     .col2{
-        display: contents;
+        // display: contents;
         .con{
             display: flex;
             align-items: center;
@@ -205,9 +217,10 @@ section{
 
 
 @media screen and (max-width:950px) and (min-width:300px) {
+   
     section .data{
-        display: grid;
-        grid-template-columns: repeat(2,atuo);
+        display: none;
+        display: flex;
         background: #49a09d;
         }
         // .col1{

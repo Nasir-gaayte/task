@@ -17,7 +17,7 @@ class Citymodel(models.Model):
 
 class Categorymodel(models.Model):
     name = models.CharField(max_length=100)
-    city=models.ForeignKey(Citymodel, on_delete=models.CASCADE)
+    # city=models.ForeignKey(Citymodel, on_delete=models.CASCADE)
     
     def __str__(self):
         return self.name
