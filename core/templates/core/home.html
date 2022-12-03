@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'css/main.css' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
    
@@ -79,57 +80,76 @@
             </p>
             <p class="feed-ca">
                 <h3> <span> Search By Category </span></h3>
-                {%for category in catt %}
+                {%for category in categores %}
                 <div class="btn btn-lg"><a href="{% url 'home' %}?category={{cateogry.name}}">{{category.name}}</a></div>
                 {%endfor%}
             </p>
         </div>
     </section>
-    <section class="data">
-        <div class="col1">
+    <section class="data row">
+        
+        <div class="col1 col-8">
             <div class="all-t-body">
                 <div class="table-body">
-                    <div class="con">
-                        <table>
+                    
+                        <table class="table  table-success table-striped-columns">
                             <thead>
                                 <tr>
                                     <th>#</th>
                                     <th>Name</th>
+                                    <th>Category</th>
                                     <th>City</th>
                                     <th>Phone</th>
-                                    
+                                    {% if user.is_authenticated %}
+                                    <th>Update</th>
+                                    <th>Delet</th>
+                                    {%endif%}
                                 </tr>
                             </thead>
                             <tbody>
                                 {% for x in conts%}
-                                <tr>
+                                <tr  >
                                     <td>{{forloop.counter}}</td>
-                                    <td>{{x.name}}</td>
+                                    <td> {{x.name}} </td>
+                                    <td>{{x.category}}</td>
                                     <td>{{x.city}}</td>
                                     <td>{{x.phone1}}</td>
-                                    
+                                    {% if user.is_authenticated %}
+                                    <td><a href="{% url 'update' x.id %}"><i class="fa-regular fa-pen-to-square"></i></a></td>
+                                    <td><a href="{% url 'delete' x.id %}"><i class="fa-solid fa-trash"></i></a></td>
+                                    {%endif%}
                                 </tr>
                                 {%endfor%}
                             </tbody>
                         </table>
-                    </div>
+                  
                 </div>
             </div>
         </div>
-        <div class="col2">
-            
-            <div class="con">
-                <div class="card" style="width: 18rem;">
-                    <img src="..." class="card-img-top" alt="...">
+        <div class="col2 col-4">
+                <div class="card" >
+                    <img src="/static/imo/somtel.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    </div>
+                </div>
+                <div class="card" >
+                    <img src="/static/imo/somtel.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    </div>
+                </div>
+                <div class="card" >
+                    <img src="/static/imo/somtel.jpg" class="card-img-top" alt="...">
                     <div class="card-body">
                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                     </div>
                 </div>
             </div>
-            
         </div>
-        {% endblock content %}
     </section>
+        {% endblock content %}
+   
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
     <script>

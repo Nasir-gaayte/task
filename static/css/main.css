@@ -118,60 +118,16 @@ section .container img {
 }
 
 section .data {
-  display: none;
-  display: grid;
-  grid-template-columns: repeat(2, auto);
-  background: linear-gradient(45deg, #49a09d, #5f2c82);
-}
-section .data .col1 .all-t-body .con {
   display: flex;
-  align-items: center;
-  justify-content: center;
-}
-section .data .col1 .all-t-body table {
-  border-collapse: collapse;
-  overflow: hidden;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-}
-section .data .col1 .all-t-body th,
-section .data .col1 .all-t-body td {
-  padding: 15px;
-  background-color: rgba(255, 255, 255, 0.2);
-  color: rgb(240, 237, 243);
-}
-section .data .col1 .all-t-body th {
-  text-align: left;
-}
-section .data .col1 .all-t-body thead th {
-  background-color: #55608f;
-}
-section .data .col1 .all-t-body tbody tr:hover {
-  background-color: rgba(255, 255, 255, 0.3);
-}
-section .data .col1 .all-t-body tbody td {
-  position: relative;
-}
-section .data .col1 .all-t-body tbody td:hover:before {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: -9999px;
-  bottom: -9999px;
-  background-color: rgba(255, 255, 255, 0.2);
-  z-index: -1;
-}
-section .data .col2 .con {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column-reverse;
+  align-items: baseline;
+  flex-direction: column;
+  background: #49a09d;
 }
 
-@media screen and (max-width: 950px) and (min-width: 300px) {
+@media screen and (min-width: 500px) {
   section .data {
-    display: none;
     display: flex;
-    background: #49a09d;
+    justify-content: center;
+    align-items: center;
   }
 }/*# sourceMappingURL=main.css.map */

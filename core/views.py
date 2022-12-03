@@ -1,5 +1,6 @@
 from django.shortcuts import render ,redirect
 from django.contrib.auth import login
+from django.contrib import messages
 
 from . models import Contactmodel, Citymodel, Categorymodel
 from . forms import AddForm
@@ -9,22 +10,28 @@ from . forms import AddForm
 
 
 def home(request):
-    conts= Contactmodel.objects.all()
-    category = request.GET.get('name')
-    city = request.GET.get('name')
-    if category or city == None:
-        catt = Categorymodel.objects.all().order_by('-id') or Citymodel.objects.all()
-
+    
+    
+    city = request.GET.get('city')
+    print(city)
+    if city == None :
+        conts =  Contactmodel.objects.all().order_by('-id') 
+    elif city:       
+        conts = Contactmodel.objects.filter(city__name=city)
+        print(conts)
     else:
-        catt = Categorymodel.objects.filter(category__name='name') or Citymodel.objects.filter(city__name='name')   
-        print(category)
+        messages.error(request,f"no city have this name on the website")
+        
+           
+        
     categores= Categorymodel.objects.all()
     citys = Citymodel.objects.all()
     return render(request,'core/home.html',{
-        'catt':catt,
+        # 'catt':catt,
         'conts':conts,
         'categores':categores,
         'citys':citys,
+        'messages':messages,
         })
 
 
@@ -68,3 +75,29 @@ def add(request):
         'citss':citss,
         
         })
+
+
+
+def update_req(request, id):
+    conts = Contactmodel.objects.get(pk=id)
+    if request.method == "POST":
+        form = AddForm(request.POST, instance=conts)
+        if form.is_valid():
+            form.save()
+        return redirect ('home')
+    form=AddForm(instance=conts)       
+    return render(request,'core/update.html',{
+        
+        'form':form,
+        
+        })
+    
+    
+def delete_req(request, id):
+    conts = Contactmodel.objects.get(pk=id)
+    if request:
+        conts.delete()
+        return redirect('home')
+    
+        
+       

@@ -137,99 +137,100 @@ section{
     }
 }
 
-section .data{
-    display: none;
-    display:grid;
-    grid-template-columns: repeat(2,auto);
+// section .data{
+//     display: none;
+//     display:grid;
+//     grid-template-columns: repeat(2,auto);
     
    
-    background: linear-gradient(45deg, #49a09d, #5f2c82);
+//     background: linear-gradient(45deg, #49a09d, #5f2c82);
 
-    .col1{
-        // display:contents;
-        .all-t-body{
+//     .col1{
+//         display:contents;
+//         .all-t-body{
             
-            .con{
-              display: flex;
-              align-items: center;
-              justify-content: center;  
+//             .con{
+//               display: flex;
+//               align-items: center;
+//               justify-content: center;  
                 
-            }
-            table {
+//             }
+//             table {
                 
-                border-collapse: collapse;
-                overflow: hidden;
-                box-shadow: 0 0 20px rgba(0,0,0,0.1);
-            }
-            th,
-            td {
-                padding: 15px;
-                background-color: rgba(255,255,255,0.2);
-                color: rgb(240, 237, 243);
-            }
-            th {
-                text-align: left;
-            }
-            thead {
-                th {
-                    background-color: #55608f;
-                }
-            }
+//                 border-collapse: collapse;
+//                 overflow: hidden;
+//                 box-shadow: 0 0 20px rgba(0,0,0,0.1);
+//             }
+//             th,
+//             td {
+//                 padding: 15px;
+//                 background-color: rgba(255,255,255,0.2);
+//                 color: rgb(240, 237, 243);
+//             }
+//             th {
+//                 text-align: left;
+//             }
+//             thead {
+//                 th {
+//                     background-color: #55608f;
+//                 }
+//             }
 
-            tbody {
-                tr {
-                    &:hover {
-                        background-color: rgba(255,255,255,0.3);
-                    }
-                }
-                td {
-                    position: relative;
-                    &:hover {
-                        &:before {
-                            content: "";
-                            position: absolute;
-                            left: 0;
-                            right: 0;
-                            top: -9999px;
-                            bottom: -9999px;
-                            background-color: rgba(255,255,255,0.2);
-                            z-index: -1;
-                        }
-                    }
-                }
-            } 
-        }
-    }
-    .col2{
-        // display: contents;
-        .con{
-            display: flex;
-            align-items: center;
-            justify-content: center; 
-            flex-direction: column-reverse; 
-        }
+//             tbody {
+//                 tr {
+//                     &:hover {
+//                         background-color: rgba(255,255,255,0.3);
+//                     }
+//                 }
+//                 td {
+//                     position: relative;
+//                     &:hover {
+//                         &:before {
+//                             content: "";
+//                             position: absolute;
+//                             left: 0;
+//                             right: 0;
+//                             top: -9999px;
+//                             bottom: -9999px;
+//                             background-color: rgba(255,255,255,0.2);
+//                             z-index: -1;
+//                         }
+//                     }
+//                 }
+//             } 
+//         }
+//     }
+//     .col2{
+//         // display: contents;
+//         .con{
+//             display: flex;
+//             align-items: center;
+//             justify-content: center; 
+//             flex-direction: column-reverse; 
+//         }
         
         
        
-    }
+//     }
+// }
+section .data{
+    display: flex;
+    align-items: baseline;
+    flex-direction: column;
+    background: #49a09d;
+    
 }
 
 
 
-@media screen and (max-width:950px) and (min-width:300px) {
+
+@media screen and (min-width:400px) {
    
     section .data{
-        display: none;
         display: flex;
-        background: #49a09d;
+        justify-content: center;
+        align-items: center;
+        
         }
-        // .col1{
-
-        // }
-        // .col2{
-
-        // }
-
-    
 }
 
