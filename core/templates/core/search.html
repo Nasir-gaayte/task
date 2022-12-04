@@ -13,7 +13,8 @@
                         <th>name</th>   
                         <th>category</th>
                         <th>city</th>
-                        <th>phone1</th>
+                        <th>phone</th>
+                        <th>Email</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -25,6 +26,7 @@
                         <td class="table-info">{{x.category}}</td>
                         <td class="table-info">{{x.city}}</td>
                         <td class="table-info">{{x.phone1}}</td>
+                        <td class="table-info" ><a href="{{x.email.url}}"></a>{{x.email}}</td>
                     </tr>
                     {%endfor%}
                 </tbody>

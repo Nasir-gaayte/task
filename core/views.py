@@ -84,7 +84,7 @@ def add(request):
             category = category,
             city=name ,
             phone1 = data['phone1'],
-            phone2 = data['phone2'],
+            email = data['email'],
         
         )  
         return redirect ('home')        

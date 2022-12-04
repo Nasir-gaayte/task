@@ -117,6 +117,7 @@
                         <th>Category</th>
                         <th>City</th>
                         <th>Phone</th>
+                        <th>Email</th>
                         {% if user.is_authenticated %}
                         <th>Update</th>
                         <th>Delet</th>
@@ -131,6 +132,7 @@
                         <td>{{x.category}}</td>
                         <td>{{x.city}}</td>
                         <td>{{x.phone1}}</td>
+                        <td ><a href="{{x.email}}">{{x.email}}</a></td>
                         {% if user.is_authenticated %}
                         <td><a href="{% url 'update' x.id %}"><i class="fa-regular fa-pen-to-square"></i></a></td>
                         <td><a href="{% url 'delete' x.id %}"><i class="fa-solid fa-trash"></i></a></td>
