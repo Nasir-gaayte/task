@@ -78,55 +78,69 @@
                 <div class="btn btn-lg"> <a href="{% url 'home' %}?city={{city.name}}"> {{city.name}} </a></div>
                 {%endfor%}
             </p>
-            <p class="feed-ca">
+            <!-- <p class="feed-ca">
                 <h3> <span> Search By Category </span></h3>
                 {%for category in categores %}
                 <div class="btn btn-lg"><a href="{% url 'home' %}?category={{cateogry.name}}">{{category.name}}</a></div>
                 {%endfor%}
-            </p>
-        </div>
-    </section>
-    <section class="data row">
-        
-        <div class="col1 col-8">
-            <div class="all-t-body">
-                <div class="table-body">
-                    
-                        <table class="table  table-success table-striped-columns">
-                            <thead>
-                                <tr>
-                                    <th>#</th>
-                                    <th>Name</th>
-                                    <th>Category</th>
-                                    <th>City</th>
-                                    <th>Phone</th>
-                                    {% if user.is_authenticated %}
-                                    <th>Update</th>
-                                    <th>Delet</th>
-                                    {%endif%}
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {% for x in conts%}
-                                <tr  >
-                                    <td>{{forloop.counter}}</td>
-                                    <td> {{x.name}} </td>
-                                    <td>{{x.category}}</td>
-                                    <td>{{x.city}}</td>
-                                    <td>{{x.phone1}}</td>
-                                    {% if user.is_authenticated %}
-                                    <td><a href="{% url 'update' x.id %}"><i class="fa-regular fa-pen-to-square"></i></a></td>
-                                    <td><a href="{% url 'delete' x.id %}"><i class="fa-solid fa-trash"></i></a></td>
-                                    {%endif%}
-                                </tr>
-                                {%endfor%}
-                            </tbody>
-                        </table>
-                  
-                </div>
+            </p> -->
+            <div class="feed-cs ">
+                <form class="" method="POST"  action="{% url 'search' %}"> 
+                    {% csrf_token %}
+                    <div class=" row d-flex justify-content-center "> 
+                        <div class="col-8" style="margin-right: 5px;"> 
+                            <input class="form-control"  name="name" type="text" placeholder="Enter the company name or title">
+                        </div>
+                        <!-- <div class="col-4">    
+                            <select name="category" class="form-control" >
+                                <option value="none">Gategorys</option>
+                                {% for c in categores %}
+                                <option value="{{c.id}}">{{c.name}}</option>
+                                {% endfor %}
+                            </select>
+                        </div> -->
+                        <div class="col-2">
+                            <button class="btn btn-secondary btn-block">Search</button>
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
-        <div class="col2 col-4">
+    </section>
+    <section class="row"> 
+        <div class="col-8">
+            <table class="table  table-success table-striped-columns">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Name</th>
+                        <th>Category</th>
+                        <th>City</th>
+                        <th>Phone</th>
+                        {% if user.is_authenticated %}
+                        <th>Update</th>
+                        <th>Delet</th>
+                        {%endif%}
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for x in conts%}
+                    <tr  >
+                        <td>{{forloop.counter}}</td>
+                        <td> {{x.name}} </td>
+                        <td>{{x.category}}</td>
+                        <td>{{x.city}}</td>
+                        <td>{{x.phone1}}</td>
+                        {% if user.is_authenticated %}
+                        <td><a href="{% url 'update' x.id %}"><i class="fa-regular fa-pen-to-square"></i></a></td>
+                        <td><a href="{% url 'delete' x.id %}"><i class="fa-solid fa-trash"></i></a></td>
+                        {%endif%}
+                    </tr>
+                    {%endfor%}
+                </tbody>
+            </table>
+        </div>
+        <div class="col-4">
                 <div class="card" >
                     <img src="/static/imo/somtel.jpg" class="card-img-top" alt="...">
                     <div class="card-body">
@@ -152,18 +166,6 @@
    
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
-    <script>
-        const menu = document.querySelector('.menu')
-        const close = document.querySelector('.x')
-        const nav = document.querySelector('nav')
-
-        menu.addEventListener('click',()=>{
-           nav.classList.add("open-nav");
-        })
-        close.addEventListener('click',()=>{
-           nav.classList.remove("open-nav");
-        })
-
-    </script>
+   
 </body>
 </html>

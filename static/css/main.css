@@ -117,17 +117,11 @@ section .container img {
   text-decoration: none;
 }
 
-section .data {
-  display: flex;
-  align-items: baseline;
-  flex-direction: column;
-  background: #49a09d;
-}
-
-@media screen and (min-width: 500px) {
-  section .data {
+@media screen and (min-width: 900px) {
+  body section .row {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: flex-start;
   }
 }/*# sourceMappingURL=main.css.map */

@@ -134,103 +134,26 @@ section{
         a {
             text-decoration: none;
         }
+        
     }
 }
 
-// section .data{
-//     display: none;
-//     display:grid;
-//     grid-template-columns: repeat(2,auto);
+// section .row{
     
-   
-//     background: linear-gradient(45deg, #49a09d, #5f2c82);
-
-//     .col1{
-//         display:contents;
-//         .all-t-body{
-            
-//             .con{
-//               display: flex;
-//               align-items: center;
-//               justify-content: center;  
-                
-//             }
-//             table {
-                
-//                 border-collapse: collapse;
-//                 overflow: hidden;
-//                 box-shadow: 0 0 20px rgba(0,0,0,0.1);
-//             }
-//             th,
-//             td {
-//                 padding: 15px;
-//                 background-color: rgba(255,255,255,0.2);
-//                 color: rgb(240, 237, 243);
-//             }
-//             th {
-//                 text-align: left;
-//             }
-//             thead {
-//                 th {
-//                     background-color: #55608f;
-//                 }
-//             }
-
-//             tbody {
-//                 tr {
-//                     &:hover {
-//                         background-color: rgba(255,255,255,0.3);
-//                     }
-//                 }
-//                 td {
-//                     position: relative;
-//                     &:hover {
-//                         &:before {
-//                             content: "";
-//                             position: absolute;
-//                             left: 0;
-//                             right: 0;
-//                             top: -9999px;
-//                             bottom: -9999px;
-//                             background-color: rgba(255,255,255,0.2);
-//                             z-index: -1;
-//                         }
-//                     }
-//                 }
-//             } 
-//         }
-//     }
-//     .col2{
-//         // display: contents;
-//         .con{
-//             display: flex;
-//             align-items: center;
-//             justify-content: center; 
-//             flex-direction: column-reverse; 
-//         }
-        
-        
-       
-//     }
 // }
-section .data{
-    display: flex;
-    align-items: baseline;
-    flex-direction: column;
-    background: #49a09d;
-    
-}
 
 
 
 
-@media screen and (min-width:400px) {
-   
-    section .data{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        
+
+@media screen and (min-width:900px) {
+    body{
+        section .row{
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            align-content: flex-start;
         }
+    }
 }
 

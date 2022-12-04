@@ -8,10 +8,21 @@ from . forms import AddForm
 # Create your views here.
 
 
+def search(request):
+    if request.method == "POST":
+        s_naem= request.POST['name']
+        # s_category =request.POST['category']
+        searched = Contactmodel.objects.filter(name__contains=s_naem)
+        # searched = Contactmodel.objects.filter(name__contains=s_category)
+    return render(request,'core/search.html',{
+        'searched':searched,
+        
+        })
+
 
 def home(request):
     
-    
+   
     city = request.GET.get('city')
     print(city)
     if city == None :
@@ -21,7 +32,14 @@ def home(request):
         print(conts)
     else:
         messages.error(request,f"no city have this name on the website")
-        
+    
+    # if category == None :
+    #     conts =  Contactmodel.objects.all().order_by('-id') 
+    # elif city:       
+    #     conts = Contactmodel.objects.filter(category__name=category)
+    #     print(conts)
+    # else:
+    #     messages.error(request,f"no city have this name on the website")    
            
         
     categores= Categorymodel.objects.all()
@@ -32,6 +50,7 @@ def home(request):
         'categores':categores,
         'citys':citys,
         'messages':messages,
+        
         })
 
 

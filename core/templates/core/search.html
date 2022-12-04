@@ -1,0 +1,37 @@
+{% extends 'core/home.html' %}  
+
+{% block content %}
+<div class="mt-5">
+    <div class="container">
+        <button class="btn btn-dark" type="submit"><a href="{% url 'home' %}">Back</a></button>
+        <h1>Search </h1>
+        <div class="card">
+            <table class="table-info">
+                <thead>
+                    <tr class="table-info">
+                        <th>#</th>
+                        <th>name</th>   
+                        <th>category</th>
+                        <th>city</th>
+                        <th>phone1</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for x in searched %}
+                    
+                    <tr>
+                        <td class="table-info">{{forloop.counter}}</td>
+                        <td class="table-info">{{x.name}}</td>
+                        <td class="table-info">{{x.category}}</td>
+                        <td class="table-info">{{x.city}}</td>
+                        <td class="table-info">{{x.phone1}}</td>
+                    </tr>
+                    {%endfor%}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+    
+{% endblock content %}
+    
