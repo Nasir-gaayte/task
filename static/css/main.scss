@@ -11,12 +11,10 @@ body{
     padding: 0;
     font-family: 'Roboto Condensed';
     font-size: small;
-    font-weight: 100;
+    font-weight: 50;
 }
 
-nav {
-    display: none;
-}
+
 
 .navbar{
     background: white;
@@ -47,7 +45,7 @@ nav {
             top: 0;
             background: white;
             height: 100vh;
-            width: 50%;
+            // width: 50%;
             z-index: 999;
             text-transform: uppercase;
             transform: translateX(100%);
@@ -138,22 +136,36 @@ section{
     }
 }
 
-// section .row{
+
     
-// }
+
+.cards{
+    display: none;
+    display: flex;
+    align-content: flex-start;
+    gap: 10px;
+    gap: 10px 20px; /* row-gap column gap */
+    row-gap: 10px;
+    column-gap: 20px;
+    margin-top: 14px;
+        
+}
+
+table{
+    margin: 1em auto;
+    float: left;
+    width: 100%;
+    height: 100%;
+    size: 1ch;
+    font-size: 20px;
+    
+
+}
 
 
-
-
-
-@media screen and (min-width:900px) {
-    body{
-        section .row{
-            display: flex;
-            flex-direction: column;
-            flex-wrap: wrap;
-            align-content: flex-start;
-        }
+@media screen and (max-width:600px) {
+    *{
+        font-size: 5px;
     }
 }
 

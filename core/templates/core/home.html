@@ -14,47 +14,47 @@
     <title>Tasks</title>
 </head>
 <body>
-            <nav class="navbar ">
-                <div class="container">
-                    <a class="logo" href="{% url 'home' %}">DOON<span>/WAC</span></a> 
-                  <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
-                    <span class="navbar-toggler-icon"></span>
-                  </button>
-                  <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
-                    <div class="offcanvas-header">
-                      <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Welcome</h5><br>{{user.username}}
-                      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                    </div>
-                    <div class="offcanvas-body">
-                      <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-                        <li class="nav-item">
-                          <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="{% url 'add' %}">Add</a>
-                          </li>
-                      </ul>
+    <nav class="navbar ">
+        <div class="container">
+            <a class="logo" href="{% url 'home' %}">DOON<span>/WAC</span></a> 
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Welcome</h5><br>{{user.username}}
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="{% url 'add' %}">Add</a>
+                    </li>
+                </ul>
 
 
-                      <ul class="navbar-nav ">
-                        {% if user.is_authenticated %}
-                        <li class="nav-item">
-                          <a class="nav-link" href="{% url 'logout' %}">logout</a>
-                        </li>
-                        {% else %}
-                        <li class="nav-item">
-                            <a class="nav-link" href="{% url 'login' %}">login</a>
-                          </li>
-                          {% endif %}
-                      </ul>
-                      <form class="d-flex mt-3" role="search">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-outline-success" type="submit">Search</button>
-                      </form>
-                    </div>
-                  </div>
-                </div>
-              </nav>
+                <ul class="navbar-nav ">
+                {% if user.is_authenticated %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'logout' %}">logout</a>
+                </li>
+                {% else %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'login' %}">login</a>
+                    </li>
+                    {% endif %}
+                </ul>
+                <form class="d-flex mt-3" role="search">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+            </div>
+            </div>
+        </div>
+    </nav>
 
     {% block content %}
     <section class="hero">
@@ -70,7 +70,7 @@
             <img src="/static/imo/ybook.png" alt="">
         </div>
     </section>
-    <section class="feed">
+    <section class="feed row">
         <div class="container">
             <p class="feed-ci">
                 <h3> <span> Search By Citys </span></h3>
@@ -107,8 +107,8 @@
             </div>
         </div>
     </section>
-    <section class="row"> 
-        <div class="col-8">
+    <section class="row d-flex justify-content-between"> 
+        <div class="row">
             <table class="table  table-success table-striped-columns">
                 <thead>
                     <tr>
@@ -142,15 +142,16 @@
                 </tbody>
             </table>
         </div>
-        <div class="col-4">
+        <div class="col" >
+            <div class="cards">
                 <div class="card" >
-                    <img src="/static/imo/somtel.jpg" class="card-img-top" alt="...">
+                    <img src="/static/imo/g2.gif" class="card-img-top" alt="...">
                     <div class="card-body">
                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                     </div>
                 </div>
                 <div class="card" >
-                    <img src="/static/imo/somtel.jpg" class="card-img-top" alt="...">
+                    <img src="/static/imo/g1.gif" class="card-img-top" alt="...">
                     <div class="card-body">
                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                     </div>
@@ -162,6 +163,7 @@
                     </div>
                 </div>
             </div>
+            
         </div>
     </section>
         {% endblock content %}
