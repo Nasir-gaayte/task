@@ -108,8 +108,9 @@ section .container img {
   padding-bottom: 0.4em;
   margin-bottom: 0.4em;
 }
-.feed .feed-ci a {
+.feed button a {
   text-decoration: none;
+  color: #f2f2f2;
 }
 
 .cards {
@@ -135,6 +136,6 @@ table {
 
 @media screen and (max-width: 600px) {
   * {
-    font-size: 5px;
+    font-size: 8px;
   }
 }/*# sourceMappingURL=main.css.map */

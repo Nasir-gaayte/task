@@ -5,6 +5,9 @@
     --cta--color:rgb(57, 187, 219);
 }
 
+
+
+
 body{
     background: #f2f2f2;
     margin: 0;
@@ -12,6 +15,7 @@ body{
     font-family: 'Roboto Condensed';
     font-size: small;
     font-weight: 50;
+    
 }
 
 
@@ -128,13 +132,11 @@ section{
     padding-left: 0.4em; 
     padding-bottom: 0.4em;
     margin-bottom: 0.4em;
-    .feed-ci {
-        a {
-            text-decoration: none;
-        }
-        
-    }
-}
+    button a {
+        text-decoration: none;
+        color: #f2f2f2;
+    }  
+ }
 
 
     
@@ -165,7 +167,7 @@ table{
 
 @media screen and (max-width:600px) {
     *{
-        font-size: 5px;
+        font-size: 8px;
     }
 }
 

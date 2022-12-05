@@ -71,6 +71,7 @@ def add(request):
     if request.method=="POST":
         data = request.POST
         username = request.user
+        image = request.FILES.get('logo')
         category = Categorymodel.objects.get(id= data['category'])
         print(category)
         name= Citymodel.objects.get(id= data['city'])
@@ -80,6 +81,7 @@ def add(request):
           
         Contactmodel.objects.get_or_create (
             auther = username,
+            logo = image,
             name  = data['name'],
             category = category,
             city=name ,

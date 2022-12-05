@@ -75,7 +75,7 @@
             <p class="feed-ci">
                 <h3> <span> Search By Citys </span></h3>
                 {%for city in citys %}
-                <div class="btn btn-lg"> <a href="{% url 'home' %}?city={{city.name}}"> {{city.name}} </a></div>
+                <button  class="btn btn-warning "> <a style="text-decoration: none; color:black;"  href="{% url 'home' %}?city={{city.name}}"> {{city.name}} </a></button>
                 {%endfor%}
             </p>
             <!-- <p class="feed-ca">
@@ -84,6 +84,7 @@
                 <div class="btn btn-lg"><a href="{% url 'home' %}?category={{cateogry.name}}">{{category.name}}</a></div>
                 {%endfor%}
             </p> -->
+
             <div class="feed-cs ">
                 <form class="" method="POST"  action="{% url 'search' %}"> 
                     {% csrf_token %}
@@ -108,11 +109,13 @@
         </div>
     </section>
     <section class="row d-flex justify-content-between"> 
-        <div class="row">
-            <table class="table  table-success table-striped-columns">
+        <div class="row" style="margin-bottom: 30px;" >
+            <button class="btn btn-dark" type="submit"><a style="text-decoration: none; color:gold; font-size:large; "  href="{% url 'home' %}"> <i style="font-size:large;" class="fa-solid fa-arrows-rotate"></i> Refersh</a></button>
+            <table class="table  table-secondary table-striped-columnstable table-striped table-hover">
                 <thead>
                     <tr>
                         <th>#</th>
+                        <th>Logo</th>
                         <th>Name</th>
                         <th>Category</th>
                         <th>City</th>
@@ -128,11 +131,18 @@
                     {% for x in conts%}
                     <tr  >
                         <td>{{forloop.counter}}</td>
+                        <td>
+                        {%if x.logo%}
+                        <img class="table-imag" width="20" src="{{x.logo.url}}" >
+                        {%else%}
+                        <i class="fa-sharp fa-solid fa-face-smile"></i><i class="fa-sharp fa-solid fa-arrow-right-from-bracket"></i>
+                        {%endif%}
+                        </td>
                         <td> {{x.name}} </td>
                         <td>{{x.category}}</td>
                         <td>{{x.city}}</td>
                         <td>{{x.phone1}}</td>
-                        <td ><a href="{{x.email}}">{{x.email}}</a></td>
+                        <td ><a  style="text-decoration: none;" href="{{x.email}}">{{x.email}}</a></td>
                         {% if user.is_authenticated %}
                         <td><a href="{% url 'update' x.id %}"><i class="fa-regular fa-pen-to-square"></i></a></td>
                         <td><a href="{% url 'delete' x.id %}"><i class="fa-solid fa-trash"></i></a></td>
@@ -145,6 +155,12 @@
         <div class="col" >
             <div class="cards">
                 <div class="card" >
+                    <img src="/static/imo/golis.jpeg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    </div>
+                </div>
+                <div class="card">
                     <img src="/static/imo/g2.gif" class="card-img-top" alt="...">
                     <div class="card-body">
                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -170,6 +186,32 @@
    
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
-   
+    
+    <section class="footer row">
+        <div class="container">
+            <p class="feed-ci">
+                <h3> <span> Contact Us </span></h3>
+                
+                <button  class="btn btn-warning "> <a style="text-decoration: none;"  href="https://github.com/Nasir-gaayte?tab=repositories"><i class="fa-brands fa-twitter"></i> @Dadon33</a></button>
+                <button  class="btn btn-warning "> <a style="text-decoration: none;"  href="https://github.com/Nasir-gaayte?tab=repositories"><i class="fa-brands fa-facebook"></i> don-go-web</a></button>
+                <button  class="btn btn-warning "> <a style="text-decoration: none;"  href="https://github.com/Nasir-gaayte?tab=repositories"> <i class="fa-brands fa-github"></i> @don33</a></button>
+                <button  class="btn btn-warning "> <a style="text-decoration: none;"  href="https://github.com/Nasir-gaayte?tab=repositories"> <i class="fa-solid fa-envelope"></i> info@dadon.com</a></button>
+                
+            </p>
+            <hr>
+            <div class="container">
+                    <div class=" row d-flex justify-content-center align-items-center "> 
+                        <div class="col" style="margin-right: 5px;"> 
+                           <p>copyright <i class="fa-solid fa-copyright"></i> don-go-web.dadon.com  </p>
+                        </div>
+                        <div class="col">
+                            <p>Nasir-gaayte</p>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </section>
+
+
 </body>
 </html>

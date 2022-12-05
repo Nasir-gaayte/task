@@ -26,6 +26,7 @@ class Categorymodel(models.Model):
 
 class Contactmodel(models.Model):
     auther=models.ForeignKey(User,on_delete=models.CASCADE)
+    logo = models.ImageField(blank=True, null=True)
     name = models.CharField(max_length=255,null=False,blank=False)
     category=models.ForeignKey(Categorymodel,on_delete=models.CASCADE)
     city=models.ForeignKey(Citymodel,on_delete=models.CASCADE)
@@ -33,4 +34,4 @@ class Contactmodel(models.Model):
     email = models.EmailField(max_length=100, blank=True, null= True)
     
     def __str__(self):
-        return f"name:{self.name}phone{self.phone1}-{self.phone2}"
+        return f"name:{self.name}phone{self.phone1}"
