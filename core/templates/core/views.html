@@ -1,0 +1,24 @@
+{% extends 'core/home.html' %}  
+
+{% block content %}
+<div class="mt-5">
+    <div class="container">
+        
+        <div class="card" >
+            <button style="font-size:30px; " class="btn btn-dark" type="submit"><a style="text-decoration: none; color:gold;" href="{% url 'home' %}">Back</a></button>
+            <div class="card container" style="margin-top:10px; width: 250px; ">
+                
+                <img src="{{object.logo.url}}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">{{object.name}}</h5>
+                    <p class="card-text">in {{object.city}} <br> phone:- {{object.phone1}} <br> email:-{{object.email}}</p>
+                    <a href="#" class="btn btn-primary">Call Now </a>
+                </div>
+               
+            </div>
+        </div>
+    </div>
+</div>
+    
+{% endblock content %}
+    

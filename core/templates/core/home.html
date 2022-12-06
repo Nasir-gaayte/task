@@ -129,7 +129,7 @@
                 </thead>
                 <tbody>
                     {% for x in conts%}
-                    <tr  >
+                    <tr >
                         <td>{{forloop.counter}}</td>
                         <td>
                         {%if x.logo%}
@@ -138,7 +138,7 @@
                         <i class="fa-sharp fa-solid fa-face-smile"></i><i class="fa-sharp fa-solid fa-arrow-right-from-bracket"></i>
                         {%endif%}
                         </td>
-                        <td> {{x.name}} </td>
+                        <td> <a style="text-decoration: none;" href="{% url 'views' x.pk %}">{{x.name}}</a>  </td>
                         <td>{{x.category}}</td>
                         <td>{{x.city}}</td>
                         <td>{{x.phone1}}</td>

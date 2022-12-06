@@ -2,10 +2,20 @@ from django.shortcuts import render ,redirect
 from django.contrib.auth import login
 from django.contrib import messages
 
+from django.views.generic import DetailView
+
 from . models import Contactmodel, Citymodel, Categorymodel
 from . forms import AddForm
 
 # Create your views here.
+
+
+class DetailI(DetailView):
+    model = Contactmodel
+    # form_class = AddForm
+    context_object_name = 'sss'
+    template_name= 'core/views.html'
+
 
 
 def search(request):
