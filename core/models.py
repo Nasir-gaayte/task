@@ -32,6 +32,9 @@ class Contactmodel(models.Model):
     city=models.ForeignKey(Citymodel,on_delete=models.CASCADE)
     phone1 = models.IntegerField(null=False,blank=False)
     email = models.EmailField(max_length=100, blank=True, null= True)
+    location_imo = models.ImageField(null=True, blank=True)
+    location_url = models.URLField()
+    desc = models.TextField(null=True, blank=True)
     
     def __str__(self):
         return f"name:{self.name}phone{self.phone1}"

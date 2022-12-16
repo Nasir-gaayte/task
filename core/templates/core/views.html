@@ -7,11 +7,12 @@
         <div class="card" >
             <button style="font-size:30px; " class="btn btn-dark" type="submit"><a style="text-decoration: none; color:gold;" href="{% url 'home' %}">Back</a></button>
             <div class="card container" style="margin-top:10px; width: 250px; ">
-                
-                <img src="{{object.logo.url}}" class="card-img-top" alt="...">
+                <img src="{{object.logo.url}}" alt="">
+                <a href="{{object.location_url}}"><img src="{{object.location_imo.url}}" class="card-img-top" alt="..."></a>
                 <div class="card-body">
                     <h5 class="card-title">{{object.name}}</h5>
                     <p class="card-text">in {{object.city}} <br> phone:- {{object.phone1}} <br> email:-{{object.email}}</p>
+                    <p class="card-text" >{{object.desc}}</p>
                     <a href="#" class="btn btn-primary">Call Now </a>
                 </div>
                

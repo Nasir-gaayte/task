@@ -82,6 +82,7 @@ def add(request):
         data = request.POST
         username = request.user
         image = request.FILES.get('logo')
+        locat_imo = request.FILES.get('location_imo')
         category = Categorymodel.objects.get(id= data['category'])
         print(category)
         name= Citymodel.objects.get(id= data['city'])
@@ -97,6 +98,10 @@ def add(request):
             city=name ,
             phone1 = data['phone1'],
             email = data['email'],
+            location_url = data['location_url'],
+            location_imo = locat_imo,
+            desc = data['desc'],
+            
         
         )  
         return redirect ('home')        
