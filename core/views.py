@@ -5,9 +5,56 @@ from django.contrib import messages
 from django.views.generic import DetailView
 
 from . models import Contactmodel, Citymodel, Categorymodel
-from . forms import AddForm
+from . forms import AddForm, CategoryForm, CityForm
 
 # Create your views here.
+def delete_re(request, id):
+    ca = Categorymodel.objects.get(pk = id)
+    if request: 
+        ca.delete()
+        return redirect('home')
+    
+    
+def delete_re2(request, id):
+    ci = Citymodel.objects.get(pk = id)
+    if request: 
+        ci.delete()
+        return redirect('home')    
+     
+    
+    
+
+
+def change(request):
+    cats = Categorymodel.objects.all()
+    citys = Citymodel.objects.all()
+    return render(request,"core/change.html",{
+        'cats':cats,
+        'citys':citys,
+    })
+
+
+def cat(request):
+    if request.method == "POST":
+        form = CategoryForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('home')
+    form = CategoryForm()    
+    return render(request,"core/cat.html",{
+        "form":form,
+    })    
+    
+def cityes(request):
+    if request.method == "POST":
+        form = CityForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('home')
+    form = CityForm()    
+    return render(request,"core/city.html",{
+        "form":form,
+    })    
 
 
 class DetailI(DetailView):

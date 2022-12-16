@@ -9,6 +9,11 @@ urlpatterns = [
     path('delete/<int:id>/',views.delete_req,name='delete'),
     path('search/',views.search,name='search'),
     path('views/<pk>/',views.DetailI.as_view(),name='views'),
+    path('cat/',views.cat,name='cat'),
+    path('city/',views.cityes,name='city'),
+    path('change/',views.change,name='change'),
+    path('del/<int:id>',views.delete_re,name='del'),
+    path('del2/<int:id>',views.delete_re2,name='del2'),
     
 ]
 

@@ -1,0 +1,48 @@
+{% extends 'core/home.html' %}  
+
+{% block content %}
+<div class="mt-5">
+    <div class="container">
+        
+        <div class="card" >
+            <button style="font-size:30px; " class="btn btn-dark" type="submit"><a style="text-decoration: none; color:gold;" href="{% url 'home' %}">Back</a></button>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Category</th>
+                        <th>delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {%for cat in cats%}
+                    <tr>
+                        <td>{{cat.name}}</td>
+                        <td><button class="btn btn-danger" ><a href="{% url 'del' cat.id %}">delete</a></button></td>
+                    </tr>
+                    {%endfor%}
+                    
+                </tbody>
+            </table>
+<!-- table to  -->
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>City</th>
+                        <th>delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {%for city in citys%}
+                    <tr>
+                        <td>{{city.name}}</td>
+                        <td><button class="btn btn-danger" ><a href="{% url 'del2' city.id %}">delete</a></button></td>
+                    </tr>
+                    {%endfor%}
+                    
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+    
+{% endblock content %}
