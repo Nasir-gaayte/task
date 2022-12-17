@@ -1,20 +1,42 @@
 from django.shortcuts import render ,redirect
-from django.contrib.auth import login
+from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 
 from django.views.generic import DetailView
 
-from . models import Contactmodel, Citymodel, Categorymodel
-from . forms import AddForm, CategoryForm, CityForm
+from . models import Contactmodel, Citymodel, Categorymodel, PromoModel
+from . forms import AddForm, CategoryForm, CityForm, PromoForm
+
+@login_required
+def addpromo(request):
+    if request.method=="POST":
+        data = request.POST
+        logo = request.FILES.get('logo')
+        PromoModel.objects.get_or_create(
+            imo = logo,
+            desc = data['desc']
+        )
+    return render(request,"core/add_promo.html",{
+        
+    })    
+
+@login_required
+def promodel(request, id):
+    pro_del = PromoModel.objects.get(pk= id)
+    if request:
+        pro_del.delete()
+        return redirect('home')
+
 
 # Create your views here.
+@login_required
 def delete_re(request, id):
     ca = Categorymodel.objects.get(pk = id)
     if request: 
         ca.delete()
         return redirect('home')
     
-    
+@login_required  
 def delete_re2(request, id):
     ci = Citymodel.objects.get(pk = id)
     if request: 
@@ -24,7 +46,7 @@ def delete_re2(request, id):
     
     
 
-
+@login_required
 def change(request):
     cats = Categorymodel.objects.all()
     citys = Citymodel.objects.all()
@@ -33,7 +55,7 @@ def change(request):
         'citys':citys,
     })
 
-
+@login_required
 def cat(request):
     if request.method == "POST":
         form = CategoryForm(request.POST)
@@ -44,7 +66,7 @@ def cat(request):
     return render(request,"core/cat.html",{
         "form":form,
     })    
-    
+@login_required    
 def cityes(request):
     if request.method == "POST":
         form = CityForm(request.POST)
@@ -66,14 +88,21 @@ class DetailI(DetailView):
 
 
 def search(request):
-    if request.method == "POST":
+    if request.method=="POST":
         s_naem= request.POST['name']
         # s_category =request.POST['category']
         searched = Contactmodel.objects.filter(name__contains=s_naem)
         # searched = Contactmodel.objects.filter(name__contains=s_category)
+    # categores= Categorymodel.objects.all()
+    # if request.method == "POST":
+    #     cat = request.POST['name']
+        
+    #     category = Categorymodel.objects.filter(name__contains =cat)
+            
     return render(request,'core/search.html',{
         'searched':searched,
-        
+        # 'category':category,
+        # 'categores':categores,
         })
 
 
@@ -98,7 +127,7 @@ def home(request):
     # else:
     #     messages.error(request,f"no city have this name on the website")    
            
-        
+    promos = PromoModel.objects.all()    
     categores= Categorymodel.objects.all()
     citys = Citymodel.objects.all()
     return render(request,'core/home.html',{
@@ -107,6 +136,7 @@ def home(request):
         'categores':categores,
         'citys':citys,
         'messages':messages,
+        'promos':promos,
         
         })
 
@@ -121,7 +151,7 @@ def home(request):
 #             return redirect('home')
 #     form = AddForm()        
 #     return render(request,'core/add.html',{'form':form})
-
+@login_required
 def add(request):
     cats =Categorymodel.objects.all()
     citss = Citymodel.objects.all()
@@ -160,7 +190,7 @@ def add(request):
         })
 
 
-
+@login_required
 def update_req(request, id):
     conts = Contactmodel.objects.get(pk=id)
     if request.method == "POST":
@@ -175,7 +205,7 @@ def update_req(request, id):
         
         })
     
-    
+@login_required    
 def delete_req(request, id):
     conts = Contactmodel.objects.get(pk=id)
     if request:

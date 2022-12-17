@@ -45,7 +45,10 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="{% url 'city' %}">Add city</a>
-                </li>        
+                </li>   
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="{% url 'promo' %}">Add proms</a>
+                </li>      
 
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="{% url 'change' %}">changes</a>
@@ -88,7 +91,7 @@
             <p class="feed-ci">
                 <h3> <span> Search By Citys </span></h3>
                 {%for city in citys %}
-                <button  class="btn btn-warning "> <a style="text-decoration: none; color:black;"  href="{% url 'home' %}?city={{city.name}}"> {{city.name}} </a></button>
+                <button  class="btn btn-warning "> <a style="text-decoration: none; color:black; margin-bottom:2px;"  href="{% url 'home' %}?city={{city.name}}"> {{city.name}} </a></button>
                 {%endfor%}
             </p>
             <!-- <p class="feed-ca">
@@ -109,7 +112,7 @@
                             <select name="category" class="form-control" >
                                 <option value="none">Gategorys</option>
                                 {% for c in categores %}
-                                <option value="{{c.id}}">{{c.name}}</option>
+                                <option value="{{category.id}}">{{c.name}}</option>
                                 {% endfor %}
                             </select>
                         </div> -->
@@ -167,30 +170,17 @@
         </div>
         <div class="col" >
             <div class="cards">
+                {% for prom in promos %}
                 <div class="card" >
-                    <img src="/static/imo/golis.jpeg" class="card-img-top" alt="...">
+                    <img src="{{prom.imo.url}}" class="card-img-top" alt="...">
                     <div class="card-body">
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <p class="card-text">{{prom.desc}}.</p>
                     </div>
+                    {% if user.is_authenticated %}
+                    <button class="btn btn-danger" type="submit"><a href="{% url 'pro_del' prom.id %}">delete</a></button>
+                    {%endif%}
                 </div>
-                <div class="card">
-                    <img src="/static/imo/g2.gif" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    </div>
-                </div>
-                <div class="card" >
-                    <img src="/static/imo/g1.gif" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    </div>
-                </div>
-                <div class="card" >
-                    <img src="/static/imo/somtel.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    </div>
-                </div>
+                {% endfor %}
             </div>
             
         </div>

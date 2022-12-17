@@ -38,3 +38,8 @@ class Contactmodel(models.Model):
     
     def __str__(self):
         return f"name:{self.name}phone{self.phone1}"
+    
+    
+class PromoModel(models.Model):
+    imo = models.ImageField(null=False,blank=False)
+    desc = models.TextField()    

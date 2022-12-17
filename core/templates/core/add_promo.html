@@ -1,0 +1,25 @@
+{% extends 'core/home.html' %}  
+
+{% block content %}
+<div class="mt-5">
+    <div class="container">
+        
+        <div class="card" >
+            <button style="font-size:30px; " class="btn btn-dark" type="submit"><a style="text-decoration: none; color:gold;" href="{% url 'home' %}">Back</a></button>
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="form-group m3">
+                    <label >Upload image</label>
+                    <input  name="logo" type="file"  class="form-control-file">
+                </div>
+                <div class="form-group m-3">
+                    <label >Description</label> 
+                    <input required name="desc" type="text" placeholder="Add your company name">
+                </div>
+                <button class="btn btn-lg"  type="submit">add</button>
+            </form>
+        </div>
+    </div>
+</div>
+    
+{% endblock content %}

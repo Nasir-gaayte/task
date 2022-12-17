@@ -14,6 +14,7 @@ urlpatterns = [
     path('change/',views.change,name='change'),
     path('del/<int:id>',views.delete_re,name='del'),
     path('del2/<int:id>',views.delete_re2,name='del2'),
-    
+    path('promo/',views.addpromo,name='promo'),
+    path('pro_del/<int:id>',views.promodel,name='pro_del'),
 ]
 

@@ -1,5 +1,5 @@
 from django import forms 
-from .models import Contactmodel, Categorymodel , Citymodel
+from .models import Contactmodel, Categorymodel , Citymodel, PromoModel
 
 
 
@@ -21,3 +21,9 @@ class CityForm(forms.ModelForm):
     class Meta:
         model = Citymodel
         fields = ('__all__')    
+        
+        
+class PromoForm(forms.ModelForm):
+    class Meta:
+        model =   PromoModel
+        fields = ('__all__')       
