@@ -1,6 +1,8 @@
 from django.shortcuts import render ,redirect
+from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
+from django.core.mail import send_mail
 
 from django.views.generic import DetailView
 
@@ -79,6 +81,9 @@ def cityes(request):
     })    
 
 
+
+
+
 class DetailI(DetailView):
     model = Contactmodel
     # form_class = AddForm
@@ -107,8 +112,16 @@ def search(request):
 
 
 def home(request):
-    
-   
+    if request.method == "POST":
+        sub = request.POST.get('subject')
+        mes = request.POST.get('message')
+        email = request.POST.get('email')
+        print(sub,mes,email)
+        send_mail(
+            sub, mes, 'doon1wac101@gmail.com',[email]
+            )
+        # return HttpResponse('your mail has send !')
+        return redirect('home')
     city = request.GET.get('city')
     print(city)
     if city == None :

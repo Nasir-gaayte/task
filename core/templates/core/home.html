@@ -187,9 +187,31 @@
     </section>
         {% endblock content %}
    
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
     
+    <section>
+        <div class="card">
+            <form class="row g-3 form " method="POST" >
+                {% csrf_token %}
+                <div class="form-group m3">
+                    <label >subject</label>
+                    <input  name="subject" type="text"  class="form-control-file">
+                </div>
+                <div class="form-group m-3">
+                    <label >message</label><br> 
+
+                    <textarea  name="message" cols="30" rows="10" type="text" ></textarea>
+                </div>
+                
+                <div class="form-group m-3">
+                    <label  >email</label>
+                <input name="email" type="email" class="form-control" >
+                </div>
+                
+            <button class="btn btn-dark btn-block" type="submit">send</button>
+            </form>
+        </div>
+    </section>
+
     <section class="footer row">
         <div class="container">
             <p class="feed-ci">
@@ -214,7 +236,8 @@
             </div>
         </div>
     </section>
-
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
 
 </body>
 </html>
