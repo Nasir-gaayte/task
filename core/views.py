@@ -4,6 +4,8 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.core.mail import send_mail
 
+from core.filter import ContactFilter
+
 from django.views.generic import DetailView
 
 from . models import Contactmodel, Citymodel, Categorymodel, PromoModel
@@ -93,44 +95,44 @@ class DetailI(DetailView):
 
 
 def search(request):
-    if request.method=="POST":
-        s_naem= request.POST['name']
-        # s_category =request.POST['category']
-        searched = Contactmodel.objects.filter(name__contains=s_naem)
-        # searched = Contactmodel.objects.filter(name__contains=s_category)
-    # categores= Categorymodel.objects.all()
-    # if request.method == "POST":
-    #     cat = request.POST['name']
-        
-    #     category = Categorymodel.objects.filter(name__contains =cat)
+    # if request.method=="POST":
+    #     s_naem= request.POST['name']
+   
+    #     searched = Contactmodel.objects.filter(name__contains=s_naem)
+    
+    cont_filter = ContactFilter(request.GET, queryset =Contactmodel.objects.all())
+    
+ 
             
     return render(request,'core/search.html',{
-        'searched':searched,
-        # 'category':category,
+        'form':cont_filter.form,   
+        'searched':cont_filter.qs,
         # 'categores':categores,
         })
 
 
 def home(request):
+   
     if request.method == "POST":
-        sub = request.POST.get('subject')
-        mes = request.POST.get('message')
+        name = request.POST.get('username')
         email = request.POST.get('email')
-        print(sub,mes,email)
+        mes = request.POST.get('message')
+        
+        print(name,mes,email)
         send_mail(
-            sub, mes, 'doon1wac101@gmail.com',[email]
+            "Welcome"+name,
+            'we well contact you soon -- mar dhaw ayaa lagula soo xirrirayaa mahadsanid'+"\n"+ mes,
+            email,
+            ['doon1wac101@gmail.com'],
             )
         # return HttpResponse('your mail has send !')
         return redirect('home')
-    city = request.GET.get('city')
-    print(city)
-    if city == None :
-        conts =  Contactmodel.objects.all().order_by('-id') 
-    elif city:       
-        conts = Contactmodel.objects.filter(city__name=city)
-        print(conts)
-    else:
-        messages.error(request,f"no city have this name on the website")
+    
+    
+    if request : 
+       cont_filter= ContactFilter(request.GET, queryset =Contactmodel.objects.all())
+       
+    
     
     # if category == None :
     #     conts =  Contactmodel.objects.all().order_by('-id') 
@@ -141,15 +143,14 @@ def home(request):
     #     messages.error(request,f"no city have this name on the website")    
            
     promos = PromoModel.objects.all()    
-    categores= Categorymodel.objects.all()
+    conts = Contactmodel.objects.all()
     citys = Citymodel.objects.all()
     return render(request,'core/home.html',{
-        # 'catt':catt,
         'conts':conts,
-        'categores':categores,
         'citys':citys,
-        'messages':messages,
         'promos':promos,
+        'form':cont_filter.form,   
+        'searched':cont_filter.qs,
         
         })
 

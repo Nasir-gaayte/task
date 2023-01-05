@@ -88,39 +88,16 @@
     </section>
     <section class="feed row">
         <div class="container">
-            <p class="feed-ci">
-                <h3> <span> Search By Citys </span></h3>
-                {%for city in citys %}
-                <button  class="btn btn-warning "> <a style="text-decoration: none; color:black; margin-bottom:2px;"  href="{% url 'home' %}?city={{city.name}}"> {{city.name}} </a></button>
-                {%endfor%}
-            </p>
-            <!-- <p class="feed-ca">
-                <h3> <span> Search By Category </span></h3>
-                {%for category in categores %}
-                <div class="btn btn-lg"><a href="{% url 'home' %}?category={{cateogry.name}}">{{category.name}}</a></div>
-                {%endfor%}
-            </p> -->
-
-            <div class="feed-cs ">
-                <form class="" method="POST"  action="{% url 'search' %}"> 
-                    {% csrf_token %}
-                    <div class=" row d-flex justify-content-center "> 
-                        <div class="col-8" style="margin-right: 5px;"> 
-                            <input class="form-control"  name="name" type="text" placeholder="Enter the company name or title">
-                        </div>
-                        <!-- <div class="col-4">    
-                            <select name="category" class="form-control" >
-                                <option value="none">Gategorys</option>
-                                {% for c in categores %}
-                                <option value="{{category.id}}">{{c.name}}</option>
-                                {% endfor %}
-                            </select>
-                        </div> -->
-                        <div class="col-2">
-                            <button class="btn btn-secondary btn-block">Search</button>
-                        </div>
-                    </div>
-                </form>
+            <div class="feed-ci">
+                <h3> <span> Search By  </span></h3>
+                <div class=" row d-flex justify-content-center "> 
+                        <form method="GET" action="{% url 'search' %}">
+                            {% csrf_token %}
+                            {{form.as_p}}
+                          <button class="btn btn-outline-success"  type="submit">search</button>
+                         </form>
+                 </div>            
+            
             </div>
         </div>
     </section>
@@ -185,32 +162,37 @@
             
         </div>
     </section>
-        {% endblock content %}
-   
+    
     
     <section>
-        <div class="card">
-            <form class="row g-3 form " method="POST" >
-                {% csrf_token %}
-                <div class="form-group m3">
-                    <label >subject</label>
-                    <input  name="subject" type="text"  class="form-control-file">
-                </div>
-                <div class="form-group m-3">
-                    <label >message</label><br> 
-
-                    <textarea  name="message" cols="30" rows="10" type="text" ></textarea>
-                </div>
-                
-                <div class="form-group m-3">
-                    <label  >email</label>
-                <input name="email" type="email" class="form-control" >
-                </div>
-                
-            <button class="btn btn-dark btn-block" type="submit">send</button>
-            </form>
+        <div class="container">
+            <h3>SHARE YOUR THOUGHT</h3>
+            <div class="card">
+                <form class="row g-3 form " method="POST" >
+                    {% csrf_token %}
+                     <div class="form-group m-3"><br>
+                        <label ></label>
+                        <input  name="username" type="text"  class="form-control-file" placeholder="Your name">
+                    </div>
+                    <div class="form-group m-3">
+                        <label  ></label>
+                        <input name="email"  type="email" class="form-control-file" placeholder="Your email" >
+                    </div>
+                   
+                    <div class="form-group m-3">
+                        <label >message</label><br> 
+                        
+                        <textarea  name="message" cols="30" rows="10" type="text" placeholder="Fadlan ku qor codsiga aad rabtid hubuna in aad saxdo emailka si lagusoo xiriiro " ></textarea>
+                    </div>
+                    
+                    
+                    
+                    <button class="btn btn-dark btn-block" type="submit">send</button>
+                </form>
+            </div>
         </div>
     </section>
+    {% endblock content %}
 
     <section class="footer row">
         <div class="container">
