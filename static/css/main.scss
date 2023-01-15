@@ -138,7 +138,9 @@ section{
     }  
  }
 
-
+#contact{
+    margin-bottom: 15px;
+}
     
 
 .cards{
@@ -149,7 +151,15 @@ section{
     gap: 10px 20px; /* row-gap column gap */
     row-gap: 10px;
     column-gap: 20px;
-    margin-top: 14px;
+    margin-top: 100px;
+    #pcard{
+        width: 18rem;
+        height: 18rem;
+        img{
+            width: auto;
+            height: 50%;
+        }
+    }
         
 }
 
