@@ -11,6 +11,10 @@ from django.views.generic import DetailView
 from . models import Contactmodel, Citymodel, Categorymodel, PromoModel
 from . forms import AddForm, CategoryForm, CityForm, PromoForm
 
+
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
+from .serializer import ContactSerializer, CategorySerializer,CitySerializer
 @login_required
 def addpromo(request):
     if request.method=="POST":
@@ -227,4 +231,50 @@ def delete_req(request, id):
         return redirect('home')
     
         
-       
+#__________________________________________api__________________________________________
+
+
+#___________contact api____________________
+
+
+@api_view(['GET'])
+def contactGet(request):
+    data = Contactmodel.objects.all()
+    serializer = ContactSerializer(data, many=True)
+    return Response(serializer.data)
+    
+@api_view(['GET'])
+def contactGetById(request, pk):
+    data = Contactmodel.objects.get(id= pk)
+    serializer = ContactSerializer(data, many=False)
+    return Response(serializer.data)
+
+#_______________city____________________
+
+@api_view(['GET'])
+def cityGet(request):
+    data = Citymodel.objects.all()
+    serializer = CitySerializer(data, many=True)
+    return Response(serializer.data)
+    
+@api_view(['GET'])
+def cityGetById(request, pk):
+    data = Citymodel.objects.get(id= pk)
+    serializer = CitySerializer(data, many=False)
+    return Response(serializer.data)
+
+
+
+#_______________category____________________
+
+@api_view(['GET'])
+def categoryGet(request):
+    data = Categorymodel.objects.all()
+    serializer = CategorySerializer(data, many=True)
+    return Response(serializer.data)
+    
+@api_view(['GET'])
+def categoryGetById(request, pk):
+    data = Categorymodel.objects.get(id= pk)
+    serializer = CategorySerializer(data, many=False)
+    return Response(serializer.data)

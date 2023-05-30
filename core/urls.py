@@ -16,5 +16,18 @@ urlpatterns = [
     path('del2/<int:id>',views.delete_re2,name='del2'),
     path('promo/',views.addpromo,name='promo'),
     path('pro_del/<int:id>',views.promodel,name='pro_del'),
+    
+    
+    
+    
+    #________________api url __________________
+    
+    path('api/contact/',views.contactGet),
+    path('api/contact/<str:pk>/',views.contactGetById),
+    path('api/city/',views.cityGet),
+    path('api/city/<str:pk>/',views.cityGetById),
+    path('api/category/',views.categoryGet),
+    path('api/category/<str:pk>/',views.categoryGetById),
+    
 ]
 
