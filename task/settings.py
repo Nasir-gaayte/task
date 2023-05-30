@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-(vya-lb_#j8__cc&sp$sox_26ytv!fpwh)8##6_okm0nm!_icg
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -141,8 +141,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'doon1wac101@gmail.com'
-EMAIL_HOST_PASSWORD = 'hpcliywyfvrahtui'
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
+# EMAIL_HOST = 'smtp.gmail.com'
+# EMAIL_HOST_USER = 'doon1wac101@gmail.com'
+# EMAIL_HOST_PASSWORD = 'hpcliywyfvrahtui'
+# EMAIL_PORT = 587
+# EMAIL_USE_TLS = True
