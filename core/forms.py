@@ -7,7 +7,7 @@ from .models import Contactmodel, Categorymodel , Citymodel, PromoModel
 class AddForm(forms.ModelForm):
     class Meta:
         model = Contactmodel
-        fields = ("logo", "name",  "category", "city", "phone1","email","location_url","location_imo ")
+        fields = ("logo", "name", "location_url","location_imo ", "category", "city", "phone1","email")
         
         
         
