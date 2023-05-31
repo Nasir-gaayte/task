@@ -212,7 +212,7 @@ def add(request):
 def update_req(request, id):
     conts = Contactmodel.objects.get(pk=id)
     if request.method == "POST":
-        form = AddForm(request.POST, instance=conts)
+        form = AddForm(request.POST,request.FILES, instance=conts, )
         if form.is_valid():
             form.save()
         return redirect ('home')
