@@ -9,7 +9,7 @@ from .models import (
 class ContactSerializer(ModelSerializer):
     class Meta:
         model = Contactmodel
-        fields = '__all__'
+        fields = "id","logo","name","phone1","email","location_imo","location_url","desc","category","city"
     
     def to_representation(self, instance):
         rep= super(ContactSerializer,self).to_representation(instance)  
