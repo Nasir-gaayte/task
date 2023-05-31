@@ -10,7 +10,7 @@
                 {% csrf_token %}
                 <div class="form-group m3">
                     <label >Upload image</label>
-                    <input  name="logo" type="file"  class="form-control-file">
+                    <input required name="logo" type="file"  class="form-control-file">
                 </div>
                 <div class="form-group m-3">
                     <label >name</label> 
@@ -18,8 +18,8 @@
                 </div>
                 <div class="form-group m-3">
                     <label  >Select Category</label>
-                <select name="category" class="form-control" >
-                    <option value="none">Select a category...</option>
+                <select required name="category" class="form-control" aria-placeholder="What is your category" >
+                    
                     {% for cat in cats %}
                     <option value="{{cat.id}}">{{cat.name}}</option>
                     {% endfor %}
@@ -27,8 +27,8 @@
                 </div>
                 <div class="form-group m-3">
                     <label  >Select Category</label>
-                <select name="city" class="form-control" >
-                    <option value="none">Select the city ...</option>
+                <select required name="city" class="form-control" aria-placeholder="Where it your city">
+                   
                     {% for c in citss %}
                     <option value="{{c.id}}">{{c.name}}</option>
                     {% endfor %}
@@ -40,19 +40,19 @@
                 </div>
                 <div class="form-group m3">
                     <label >Email:</label>
-                    <input  name="email" type="email"  placeholder="not required" class="form-control-file">
+                    <input required name="email" type="email"  placeholder="required " class="form-control-file">
                 </div>
                 <div class="form-group m3">
                     <label >Location_url :</label>
-                    <input  name="location_url" type="url"  placeholder="not required" class="form-control-file">
+                    <input required name="location_url" type="url"  placeholder="add https// befor" class="form-control-file">
                 </div>
                 <div class="form-group m3">
                     <label >Location_imo</label>
-                    <input  name="location_imo" type="file"  class="form-control-file">
+                    <input required name="location_imo" type="file"  class="form-control-file">
                 </div>
                 <div class="form-group m-3">
                     <label >Description</label> 
-                    <input required name="desc" type="text" placeholder="Add your company name">
+                    <input required name="desc" type="text" placeholder="add some description">
                 </div>
                
             
