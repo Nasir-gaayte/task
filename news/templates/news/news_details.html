@@ -1,0 +1,21 @@
+{% extends 'core/home.html' %}  
+
+{% block content %}
+    <div class="container">
+    
+        <div class="card" style="width: 18rem;">
+            <img src="{{new.imgUrl.url}}" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">{{new.newsTite}}</h5>
+              <h5 class="card-title">{{new.by}}-on-{{new.date}}</h5>
+              <p class="card-text">{{new.body}}</p>
+            </div>
+            {% if user.is_authenticated %}
+            <div class="btn btn-dark"><a href="{% url 'news_update' new.pk %}">Update</a></div>
+            <div class="btn btn-danger "><a href="">Delete</a></div>
+          </div>
+          {%endif%}
+    </div>
+
+{% endblock content %}
+    

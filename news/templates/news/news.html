@@ -1,0 +1,18 @@
+{% extends 'core/home.html' %}  
+
+{% block content %}
+    <div class="container">
+        {% for new in news %}
+        <a href="{% url 'news_detail' new.pk %}">
+        <div class="card" style="width: 18rem;">
+            <img src="{{new.imgUrl.url}}" class="card-img-top" alt="...">
+            <div class="card-body">
+              <p class="card-text">Title: {{new.newsTite}}</p>
+            </div>
+          </div>
+        </a>
+        {%endfor%}
+    </div>
+
+{% endblock content %}
+    
