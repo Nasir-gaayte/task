@@ -3,9 +3,39 @@ from . models import NewsModel,NewsCategoryModel
 from . forms import NewsFrom, NewsCategoryFrom
 from django.contrib.auth.decorators import login_required
 
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
+from .serializer import NewsCateSerializer, NewsSerializer
+
+@api_view(['GET'])
+def newsGet(request):
+    data = NewsModel.objects.all()
+    serializer = NewsSerializer(data,many=True)
+    return Response(serializer.data)
 
 
+@api_view(['GET'])
+def newsCatsGet(request):
+    data = NewsCategoryModel.objects.all()
+    serializer = NewsCateSerializer(data,many=True)
+    return Response(serializer.data)
 
+
+@api_view(['GET'])
+def newsGetById(request, pk):
+    data = NewsModel.objects.get(id=pk)
+    serializer = NewsSerializer(data,many=False)
+    return Response(serializer.data)
+
+
+@api_view(['GET'])
+def newsCatsGetById(request, pk):
+    data = NewsCategoryModel.objects.get(id=pk)
+    serializer = NewsCateSerializer(data,many=False)
+    return Response(serializer.data)
+
+
+#------------------------------------------------------
 def news(request):
     cats= NewsCategoryModel.objects.all()
     news = NewsModel.objects.all()
