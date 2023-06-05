@@ -7,6 +7,8 @@ from .views import (news,
                     newsCatsGet,
                     newsGetById,
                     newsCatsGetById,
+                    deleteNewsCategory,
+                    add_newsCategory
                     )
 
 
@@ -16,6 +18,8 @@ urlpatterns = [
     path('news_update/<str:pk>/',update_news,name='news_update'),
     path('delete_news/<str:pk>/',deleteNews,name='delete_news'),
     path('add_news/',add_news,name='add_news'),
+    path('delete_news_category/<str:pk>/',deleteNewsCategory,name='delete_news_category'),
+    path('add_news_category/',add_newsCategory,name='add_news_category'),
     
      #________________api url __________________
     

@@ -90,3 +90,23 @@ def deleteNews(request,pk):
     news.delete()
     return redirect('news')
             
+
+@login_required
+def add_newsCategory(request):
+    if request.method == "POST":
+        form = NewsCategoryFrom()
+        if form.is_valid():
+            form.save()
+        return redirect('news')  
+
+    return render(request,'news/add_category.html',{
+    
+    })  
+        
+
+        
+def deleteNewsCategory(request,pk):
+    news= NewsCategoryModel.objects.get(id=pk)
+    news.delete()
+    return redirect('news')
+            
