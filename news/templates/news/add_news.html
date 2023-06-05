@@ -6,10 +6,14 @@
             {% csrf_token %}
             <div>
                 <label for="category">choise the category</label>
-                <select required name="category" >    
+                <select required name="category" >  
+                    {% if c %}  
                     {% for cat in c %}
                     <option  value="{{cat.id}}">{{cat.name}}</option>
                     {% endfor %}
+                    {%else%}
+                    <option value="1">one</option>
+                    {%endif%}
                 </select>
             </div>
             <div>
