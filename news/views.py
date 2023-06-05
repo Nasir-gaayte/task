@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from . models import NewsModel,NewsCategoryModel
 from . forms import NewsFrom, NewsCategoryFrom
+from django.contrib.auth.decorators import login_required
 
 
 
@@ -20,7 +21,7 @@ def newsDetail(request, pk):
         'new':new,
     })
     
-    
+@login_required    
 def update_news(request, pk):
     new = NewsModel.objects.get(id=pk)
     if request.method == "POST":
@@ -32,3 +33,30 @@ def update_news(request, pk):
     return render (request,'news/update_news.html',{
         'form':form,
     })          
+
+@login_required
+def add_news(request):
+    cats = NewsCategoryModel.objects.all()
+    
+    if request.method == "POST":
+        data = request.POST
+        imgs = request.FILES.get('imgUrl')
+        NewsModel.objects.create(
+            category = NewsCategoryModel.objects.get(id= data['category']),
+            imgUrl = imgs,
+            newsTitel=data['newsTitel'],
+            by = data['by'],
+            body = data['body'],  
+        )
+        return redirect('news')  
+    return render(request,'news/add_news.html',{
+        'cats':cats,
+    })  
+        
+
+        
+def deleteNews(request,pk):
+    news= NewsModel.objects.get(id=pk)
+    news.delete()
+    return redirect('news')
+            

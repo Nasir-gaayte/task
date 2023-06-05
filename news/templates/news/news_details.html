@@ -12,7 +12,7 @@
             </div>
             {% if user.is_authenticated %}
             <div class="btn btn-dark"><a href="{% url 'news_update' new.pk %}">Update</a></div>
-            <div class="btn btn-danger "><a href="">Delete</a></div>
+            <div class="btn btn-danger "><a href="{% url 'delete_news' new.pk %}">Delete</a></div>
           </div>
           {%endif%}
     </div>

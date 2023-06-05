@@ -1,7 +1,31 @@
 {% extends 'core/home.html' %}  
 
 {% block content %}
+    <div class="container">
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div>
+                <select required name="category" id="">
+                    {% for cat in cats%}
+                    <option value="{{cat.id}}">{{cat.name}}</option>
+                    {%endfor%}
+                </select>
+            </div>
+            <div>
+                <input required type="file" name="imgUrl" id="">
+            </div>
+            <div>
+                <input required type="text" name="newsTitel" placeholder="Add News Titel">
+            </div>
+            <div>
+                <input required type="text" name="by" placeholder="By:-">
+            </div>
+            <div>
+                <textarea required name="body"  cols="30" rows="15" placeholder="The News Body"></textarea>
+            </div>
+            <button class="btn btn-success" type="submit"> Add</button>
+        </form>
+    </div>
 
-<p>Add news</p>
 {% endblock content %}
     

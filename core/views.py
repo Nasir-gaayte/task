@@ -24,6 +24,7 @@ def addpromo(request):
             imo = logo,
             desc = data['desc']
         )
+        
     return render(request,"core/add_promo.html",{
         
     })    
