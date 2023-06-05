@@ -98,9 +98,9 @@ def add_newsCategory(request):
         if form.is_valid():
             form.save()
         return redirect('news')  
-
+    form= NewsCategoryFrom()
     return render(request,'news/add_category.html',{
-    
+        'form':form,
     })  
         
 
