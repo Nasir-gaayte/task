@@ -5,6 +5,7 @@
         <form method="POST" enctype="multipart/form-data">
             {% csrf_token %}
             <div>
+                <label for="category">choise the category</label>
                 <select required name="category" >
                    
                     {% for cat in category%}
