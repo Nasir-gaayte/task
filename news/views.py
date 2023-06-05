@@ -37,7 +37,7 @@ def update_news(request, pk):
 @login_required
 def add_news(request):
     
-    category = NewsCategoryModel.objects.all()
+    cate = NewsCategoryModel.objects.all()
     if request.method == "POST":
         data = request.POST
         imgs = request.FILES.get('imgUrl')
@@ -51,7 +51,7 @@ def add_news(request):
         return redirect('news')  
     news = NewsModel.objects.all()
     return render(request,'news/add_news.html',{
-        'category':category,
+        'cate':cate,
         'news':news,
     })  
         

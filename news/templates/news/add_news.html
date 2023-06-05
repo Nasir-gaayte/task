@@ -6,11 +6,10 @@
             {% csrf_token %}
             <div>
                 <label for="category">choise the category</label>
-                <select required name="category" >
-                   
-                    {% for cat in category%}
+                <select required name="category" >    
+                    {% for cat in cate %}
                     <option  value="{{cat.id}}">{{cat.name}}</option>
-                    {%endfor%}
+                    {% endfor %}
                 </select>
             </div>
             <div>
