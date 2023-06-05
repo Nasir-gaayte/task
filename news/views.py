@@ -94,7 +94,7 @@ def deleteNews(request,pk):
 @login_required
 def add_newsCategory(request):
     if request.method == "POST":
-        form = NewsCategoryFrom()
+        form = NewsCategoryFrom(request.POST)
         if form.is_valid():
             form.save()
         return redirect('news')  
