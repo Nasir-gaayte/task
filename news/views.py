@@ -36,7 +36,6 @@ def update_news(request, pk):
 
 @login_required
 def add_news(request):
-    cats = NewsCategoryModel.objects.all()
     
     if request.method == "POST":
         data = request.POST
@@ -49,8 +48,11 @@ def add_news(request):
             body = data['body'],  
         )
         return redirect('news')  
+    category = NewsCategoryModel.objects.all()
+    news = NewsModel.objects.all()
     return render(request,'news/add_news.html',{
-        'cats':cats,
+        'category':category,
+        'news':news,
     })  
         
 

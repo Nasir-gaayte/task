@@ -5,9 +5,10 @@
         <form method="POST" enctype="multipart/form-data">
             {% csrf_token %}
             <div>
-                <select required name="category" id="">
-                    {% for cat in cats%}
-                    <option value="{{cat.id}}">{{cat.name}}</option>
+                <select required name="category" >
+                   
+                    {% for cat in category%}
+                    <option  value="{{cat.id}}">{{cat.name}}</option>
                     {%endfor%}
                 </select>
             </div>
