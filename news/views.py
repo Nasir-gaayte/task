@@ -37,17 +37,13 @@ def newsCatsGetById(request, pk):
 
 #------------------------------------------------------
 def news(request):
-    cats= NewsCategoryModel.objects.all()
     news = NewsModel.objects.all()
     return render(request,'news/news.html',{
-        'cats':cats,
         'news':news,
     })
 def newsDetail(request, pk):
-    cat= NewsCategoryModel.objects.get(id=pk)
     new = NewsModel.objects.get(id=pk)
     return render(request,'news/news_details.html',{
-        'cat':cat,
         'new':new,
     })
     
