@@ -8,10 +8,10 @@ class NewsSerializer(ModelSerializer):
         fields ='__all__'
         
         
-    def to_representation(self, instance):
-        rep= super(NewsSerializer,self).to_representation(instance)
-        rep['category'] = instance.category.name
-        return rep
+    # def to_representation(self, instance):
+    #     rep= super(NewsSerializer,self).to_representation(instance)
+    #     rep['category'] = instance.category.name
+    #     return rep
     
     
 class NewsCateSerializer(ModelSerializer):
